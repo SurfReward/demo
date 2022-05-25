@@ -1,0 +1,58 @@
+{
+    "name": "Surf Reward Extension Demo",
+    "version": "0.0.1",
+    "description": "Description",
+    "permissions": [
+        "declarativeNetRequest",
+        "storage"
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
+    "background": {
+        "service_worker": "sw.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*/*",
+                "http://*/*"
+            ],
+            "js": [
+                "js/libs/arrive.js",
+                "js/content.script.js"
+            ],
+            "css": []
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "images/icons/icon_16.png",
+            "48": "images/icons/icon_48.png",
+            "128": "images/icons/icon_128.png"
+        }
+    },
+    "icons": {
+        "16": "images/icons/icon_16.png",
+        "48": "images/icons/icon_48.png",
+        "128": "images/icons/icon_128.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "/images/ads/*"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "manifest_version": 3
+}
